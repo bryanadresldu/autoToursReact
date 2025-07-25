@@ -1,0 +1,151 @@
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  min-height: 80vh;
+  gap: 3rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.main__text h1 {
+  font-size: 3rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.main__text h1 span {
+  color: #3498db;
+}
+
+.main__text p {
+  font-size: 1.5rem;
+  color: #555;
+  margin-bottom: 2rem;
+  line-height: 2.2;
+  text-align: justify;
+}
+
+.main__cta-button {
+  display: inline-block;
+  background-color: #2980b9;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.main__cta-button:hover {
+  background-color: #1c5980;
+}
+
+
+.gallery__title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+}
+
+.gallery__title span {
+  color: #3498db;
+}
+
+.gallery__images {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.gallery__images img {
+  max-width: 48%; 
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.gallery__images img:hover {
+  transform: scale(1.03);
+}
+
+.main__text {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+}
+
+
+.main__gallery {
+  flex: 1.2;
+  min-width: 320px;
+  max-width: 600px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.slider {
+  width: 100%;
+  height: 350px; 
+  position: relative; 
+  overflow: hidden; 
+}
+
+.slider__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  border-radius: 1rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 2s ease; 
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.4;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+.slider__arrow {
+  position: absolute;
+  top: 50%; 
+  transform: translateY(-50%);
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.slider__arrow:hover {
+  background-color: #3498db;
+  color: white;
+}
+
+.slider__arrow--left {
+  left: 10px;
+}
+
+.slider__arrow--right {
+  right: 10px;
+}

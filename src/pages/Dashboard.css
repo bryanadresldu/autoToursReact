@@ -1,0 +1,209 @@
+
+.dashboard {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.dashboard__header {
+  position: relative; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2.5rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #dee2e6;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.dashboard__welcome {
+  font-size: 1.6rem;
+  color: #495057;
+}
+
+.dashboard__welcome span {
+  font-weight: 700;
+  color: var(--colorPrimario, #2c3e50);
+}
+
+.dashboard__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.dashboard__logout-btn {
+  background-color: #e74c3c;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.dashboard__logout-btn:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+}
+
+
+.dashboard__content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  padding: 2.5rem;
+}
+
+.dashboard__card {
+  flex: 1;
+  min-width: 300px;
+  background-color: #ffffff;
+  padding: 2.5rem; 
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard__card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard__card-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--colorPrimarioTetxto, #3498db);
+  margin-top: 0; 
+  margin-bottom: 1.5rem; 
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 1rem;
+  text-align: left; 
+}
+
+.dashboard__card-subtitle {
+  font-size: 1.5rem;
+  color: #6c757d;
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+
+.dashboard-form .campo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.8rem; 
+}
+
+.dashboard-form label {
+  flex-basis: auto;   
+  font-weight: 600;
+  color: #343a40;
+  margin-bottom: 0.8rem; 
+}
+.dashboard-form input,
+.dashboard-form textarea {
+  font-size: 1.5rem;
+  padding: 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.5rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard-form input:focus,
+.dashboard-form textarea:focus {
+  outline: none;
+  border-color: var(--colorPrimarioTetxto, #3498db);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.25);
+
+}
+
+.dashboard-form textarea {
+  min-height: 100px;
+  resize: vertical;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.dashboard__no-data {
+  text-align: center;
+  background-color: #e9ecef;
+  color: #6c757d;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  font-style: italic;
+}
+
+
+.dashboard__tours-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.dashboard__tour-card {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid #e9ecef;
+  border-radius: 0.8rem;
+  align-items: center;
+}
+
+.dashboard__tour-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  flex-shrink: 0; 
+}
+
+.dashboard__tour-info {
+  flex-grow: 1; 
+}
+
+.dashboard__tour-info h5 {
+    font-family: var(--fuenteSecundaria);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.dashboard__tour-info .tour-price {
+    font-weight: 700;
+    color: var(--colorSecundarioTexto, #087030);
+    margin-bottom: 0.5rem;
+}
+
+.dashboard__tour-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.dashboard__tour-btn {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.dashboard__tour-btn--update {
+  background-color: var(--colorPrimarioTetxto, #1073BA);
+  color: white;
+}
+.dashboard__tour-btn--update:hover {
+  background-color: #0d5a92;
+}
+
+.dashboard__tour-btn--delete {
+  background-color: #e74c3c;
+  color: white;
+}
+.dashboard__tour-btn--delete:hover {
+  background-color: #c0392b;
+}

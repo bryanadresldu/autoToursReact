@@ -1,0 +1,124 @@
+
+:root {
+  /* Colores de Texto */
+  --colorPrimarioTetxto: #1073BA;
+  --colorSecundarioTexto: #087030;
+
+  /* Paleta de Colores Principal */
+  --colorPrimario: #295a7e;
+  --colorSecundario: #7a5335;
+  --colorTerciario: #302f2f; /* Ideal para texto oscuro */
+
+  /* Fuentes */
+  --fuentePrincipal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --fuenteDisplay: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Para títulos destacados */
+
+  /* Espaciado */
+  --separacion: 5rem; 
+}
+
+/* -------------------------------------------------------------------------- */
+/* 2. RESET Y ESTILOS BASE
+/* -------------------------------------------------------------------------- */
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; /* 1rem = 10px, para facilitar el cálculo de unidades rem */
+  scroll-behavior: smooth;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--fuentePrincipal);
+  font-size: 1.6rem; /* Equivale a 16px */
+  line-height: 1.6;
+  color: var(--colorTerciario);
+  background-color: #ffffff;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: var(--colorPrimarioTetxto);
+}
+
+/* Estilos base para encabezados (solo tipografía y color, sin márgenes) */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--fuenteDisplay);
+    color: var(--colorPrimario);
+    font-weight: 700;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 3. CLASES DE UTILIDAD
+/* -------------------------------------------------------------------------- */
+
+/* Contenedor principal para centrar contenido */
+.container {
+  max-width: 120rem;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Botón global reutilizable */
+.btn {
+  display: block;
+  background-color: var(--colorSecundarioTexto); /* Un verde más acorde a tu paleta */
+  color: #FFF;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: var(--fuenteSecundaria);
+  padding: 1.2rem 3rem;
+  transition: background-color 0.3s ease-out;
+  text-align: center;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #0b8f41; /* Un verde un poco más oscuro */
+}
+
+/* Utilidad para centrar texto */
+.text-center {
+  text-align: center;
+}
+
+/* Estilo para mensajes de error de formulario */
+.errors {
+  color: #e74c3c;
+  font-size: 1.4rem;
+  margin-top: 0.5rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 4. ANIMACIONES GLOBALES
+/* -------------------------------------------------------------------------- */
+
+.animated-background-section {
+  position: relative;
+  background-color: white;
+  background-image:
+    repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(235, 235, 235, 0.3) 15px, rgba(235, 235, 235, 0.3) 16px),
+    repeating-linear-gradient(-45deg, transparent, transparent 15px, rgba(240, 240, 240, 0.3) 15px, rgba(240, 240, 240, 0.3) 16px);
+  
+  animation: modern-slide 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes modern-slide {
+  0%, 100% { background-position: 0 0, 0 0; }
+  25% { background-position: 30px 30px, -15px 15px; }
+  50% { background-position: 60px 0, -30px 30px; }
+  75% { background-position: 30px -30px, -45px 45px; }
+}

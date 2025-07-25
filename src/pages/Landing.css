@@ -1,0 +1,12 @@
+
+.page-content {
+  padding-top: 275px; 
+}
+
+
+@media (min-width: 992px) {
+  .page-content {
+
+    padding-top: 120px; 
+  }
+}

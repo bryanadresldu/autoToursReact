@@ -1,0 +1,95 @@
+.container__menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; 
+
+  background: 
+    radial-gradient(circle at 15% 20%, rgba(135,206,235,0.6) 0%, transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(173,216,230,0.5) 0%, transparent 50%),
+    radial-gradient(circle at 70% 10%, rgba(176,224,230,0.4) 0%, transparent 40%),
+    radial-gradient(circle at 25% 90%, rgba(135,206,235,0.5) 0%, transparent 35%),
+    repeating-radial-gradient(circle at 20% 25%, transparent 0px, rgba(255,255,255,0.15) 1px, rgba(255,255,255,0.15) 2px, transparent 3px, transparent 25px),
+    repeating-radial-gradient(circle at 80% 75%, transparent 0px, rgba(255,255,255,0.1) 1px, rgba(255,255,255,0.1) 2px, transparent 3px, transparent 30px),
+    repeating-radial-gradient(circle at 60% 15%, transparent 0px, rgba(255,255,255,0.12) 1px, rgba(255,255,255,0.12) 2px, transparent 3px, transparent 35px),
+    linear-gradient(135deg, #87CEEB 0%, #B0E0E6 30%, #E0F6FF 70%, #B0E0E6 100%);
+  background-size: 300px 300px, 250px 250px, 200px 200px, 180px 180px, 150px 150px, 200px 200px, 180px 180px, 100% 100%;
+  animation: waves-float 25s ease-in-out infinite;
+
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  gap: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.logo img {
+  height: 120px;
+  top: 0; 
+  right: 0;
+}
+
+.container__nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-primary {
+  color: gray;
+  padding: 0.3rem 0.9rem;
+  border-radius: 1.5rem;
+  text-decoration: none;
+  display: inline-block;
+  margin: 0.5rem;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+  font-size: 16px;
+}
+
+.btn-primary:hover {
+  background-color: #2980b9;
+  color: white; 
+}
+
+.login {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+}
+
+.login .btn-primary {
+  color: black;
+}
+
+/* --- TUS @keyframes originales --- */
+@keyframes waves-float {
+}
+
+/* --- TUS @media query para DESKTOP (PC, tablets grandes) --- */
+@media (min-width: 992px) { /* Usamos 992px como un punto de quiebre más estándar */
+  .container__menu {
+    flex-direction: row; /* Vuelve a la vista de fila */
+    justify-content: space-between;
+    padding: 1rem 2.5rem; /* Más padding horizontal en pantallas grandes */
+  }
+
+  .logo img {
+    top: -25px; /* Devolvemos el efecto de "salirse" del logo */
+    right: -8px;
+  }
+
+  .container__nav {
+    margin: 0; /* Quitamos el margen para que se alinee bien */
+    justify-content: flex-start;
+  }
+}

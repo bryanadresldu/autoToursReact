@@ -1,0 +1,120 @@
+.servicios-container {
+    padding: 15px 35px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 1px auto; 
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+
+}
+
+.servicios-title {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.servicios-content {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.servicios-list {
+    flex: 1 1 500px; 
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+}
+
+.servicio-card {
+    background-color: rgba(255, 255, 255, 0.92); 
+    padding: 12px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.servicio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.servicio-card h3 {
+    font-size: 1.5rem;
+    margin: 0 0 10px 0;
+    color: #3498db;
+    display: flex;
+    align-items: center;
+}
+
+.servicio-icon {
+    font-size: 1.8rem;
+    margin-right: 15px;
+}
+
+.servicio-card p {
+    font-size: 1.4rem;
+    line-height: 1.7;
+    margin: 0;
+    text-align: justify;
+    color: #555;
+}
+
+
+.servicios-image-container {
+    flex: 1 1 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.servicios-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 1rem;
+    object-fit: cover;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.servicios-image:hover {
+transform: scale(1.03); 
+}
+
+@keyframes fadeIn {
+from {
+    opacity: 0;
+    transform: translateY(10px);
+}
+to {
+    opacity: 1;
+    transform: translateY(0);
+}
+}
+
+/* --- Diseño Responsivo --- */
+@media (max-width: 992px) {
+    .servicios-content {
+        flex-direction: column; /* Apila las columnas verticalmente */
+    }
+
+    .servicios-title {
+        font-size: 2.4rem;
+    }
+
+    .servicios-list {
+        order: 2; /* Pone los servicios debajo de la imagen en móvil */
+    }
+
+    .servicios-image-container {
+        order: 1; /* Pone la imagen arriba */
+        margin-bottom: 30px;
+    }
+}
