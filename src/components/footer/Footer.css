@@ -1,0 +1,73 @@
+
+/*: Estilos del Footer */
+.footer{
+  background-color:#ffe082 ;
+}
+
+.footer__container{
+  padding: 1.5 rem;
+}
+
+
+.footer__social h3,
+.footer__links h3,
+.footer__contact h3{
+  color: #005fa3;
+  font-weight: bold;
+  font-size: 2rem;
+  
+}
+
+.social__icons{
+  text-align: center;
+}
+.fa-brands{
+  color: black;
+  font-size: 1.5rem;
+  margin: 0 1rem;
+}
+
+.links {
+  text-align:center;
+}
+
+.links a{
+  display: block;
+  margin: .5rem 0;
+  color: black;
+  text-decoration: none;
+}
+
+.call,
+.write{
+  text-align: center;
+  color: black;
+}
+
+hr{
+  border: 1px solid black;
+}
+
+.footer__copy{
+  color: black;
+  text-align: center;
+  margin: 0;
+  padding: 1rem;
+}
+
+@media (width >= 768px) {
+  .footer__container{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 4rem;
+  }
+  .social__icons,
+  .links,
+  .call,
+  .write{
+    text-align: left;
+  }
+  
+}
+
+
