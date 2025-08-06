@@ -4,7 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { authFirebase, dbFirebase } from '../firebase';
 import { signOut } from 'firebase/auth';
-import { addDoc, collection, deleteDoc, doc, getDocs, updateDoc } from "firebase/firestore";
+import { getDocs, collection, query, where, addDoc, updateDoc, deleteDoc, doc} from "firebase/firestore";
+import PerfilUsuario from '../components/users/PerfilUsuario';
+
 
 // Importamos los estilos del Dashboard
 import './Dashboard.css';
@@ -21,19 +23,28 @@ const Dashboard = () => {
 
     // N.º 4: Lógica para obtener los datos de Firestore
     const handleGetTours = async () => {
-        try {
-            const querySnapshot = await getDocs(collection(dbFirebase, "tours")); // Usamos "tours" como nombre de la colección
-            const toursData = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-            setTours(toursData);
-        } catch (error) {
-            console.error("Error al obtener los tours:", error);
-        }
-    };
+    try {
+        const currentUser = authFirebase.currentUser;
+        if (!currentUser) return;
+
+        const q = query(
+            collection(dbFirebase, "tours"),
+            where("uid", "==", currentUser.uid)
+        );
+        const querySnapshot = await getDocs(q);
+        const toursData = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+        setTours(toursData);
+    } catch (error) {
+        console.error("Error al obtener los tours:", error);
+    }
+};
 
     // N.º 5: Efecto para cargar los tours al montar el componente
     useEffect(() => {
+    if (user) {
         handleGetTours();
-    }, []);
+    }
+}, [user]);
 
     // N.º 6: Se mantiene la lógica para verificar el usuario autenticado
     useEffect(() => {
@@ -70,8 +81,10 @@ const Dashboard = () => {
     const handleCreateTour = async (data) => {
         try {
             if (id) {
+                if (!user) return;
+                //ACtualizacion 
                 await updateDoc(doc(dbFirebase, "tours", id), data)
-                setId("")
+                setId("")//Limpia el id despues de actuliza
                 reset({
                     nombre: '',
                     imagen: '',
@@ -80,7 +93,12 @@ const Dashboard = () => {
                 })
             }
             else {
-                await addDoc(collection(dbFirebase, "tours"), data)
+                //Creacion
+                await addDoc(collection(dbFirebase, "tours"), {
+                    ...data,
+                    uid: user.uid,
+                });
+
                 reset()
             }
             handleGetTours()
@@ -89,7 +107,7 @@ const Dashboard = () => {
         }
     };
 
-     const hanleDelete = async (id) => {
+     const handleDelete = async (id) => {
         const confirmar = confirm("Vas a eliminar, ¿Estás seguro?")
         if (confirmar){
             const userDoc = doc(dbFirebase, "tours", id)
@@ -103,7 +121,7 @@ const Dashboard = () => {
         <div className="dashboard">
             <header className="dashboard__header">
                 <p className="dashboard__welcome">
-                    Bienvenido - <span>{user ? user.email : 'Usuario'}</span>
+                    Bienvenid@  <span>{user ? user.email : 'Usuario'}</span>
                 </p>
                 <div className="dashboard__actions">
                     <button onClick={handleLogout} className="dashboard__logout-btn">
@@ -113,6 +131,9 @@ const Dashboard = () => {
             </header>
 
             <main className="dashboard__content">
+                <section className="user__card">
+                 <PerfilUsuario />
+                 </section>
                 {/* === TARJETA DEL FORMULARIO === */}
                 <section className="dashboard__card">
                     <h4 className="dashboard__card-title">Crear Nuevo Tour</h4>
@@ -192,7 +213,7 @@ const Dashboard = () => {
                                         <button className="dashboard__tour-btn dashboard__tour-btn--update" onClick={()=>{handleEdit(tour)}}>Editar
                                             
                                         </button>
-                                        <button className="dashboard__tour-btn dashboard__tour-btn--delete"  onClick={()=>{hanleDelete(tour.id)}}>Borrar</button>
+                                        <button className="dashboard__tour-btn dashboard__tour-btn--delete"  onClick={()=>{handleDelete(tour.id)}}>Borrar</button>
                                     </div>
                                 </div>
                             ))
